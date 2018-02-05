@@ -1,0 +1,17 @@
+version: '3'
+services:
+  dotnet:
+    build:
+      context: ./dotnet
+      args:
+        http_proxy: ${http_proxy:-}
+        https_proxy: ${http_proxy:-}
+        no_proxy: ${no_proxy:-}
+    #environment:
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:4.0.7-alpine
+    ports:
+      - "6379:6379"
