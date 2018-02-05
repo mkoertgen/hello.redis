@@ -7,7 +7,8 @@ services:
         http_proxy: ${http_proxy:-}
         https_proxy: ${http_proxy:-}
         no_proxy: ${no_proxy:-}
-    #environment:
+    environment:
+      REDIS_URL: redis:6379
     depends_on:
       - redis
 
