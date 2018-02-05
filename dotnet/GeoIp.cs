@@ -43,7 +43,7 @@ namespace hello.redis.dotnet
                 };
                 await _redis().HashSetAsync("geoip:" + r.Code, fields);
 
-                var name = r.Code + ":" + count.ToString();
+                var name = r.Code + ":" + count;
                 await _redis().SortedSetAddAsync("geoip:index", name, r.MaxIpNumber);
 
                 count++;
