@@ -1,14 +1,29 @@
-version: '3'
+version: "3.4"
+
+#### common partials (needs docker-compose v3.4)
+x-proxy: &proxy
+  http_proxy: ${http_proxy:-}
+  https_proxy: ${https_proxy:-}
+  no_proxy: ${no_proxy:-}
+
 services:
   dotnet:
     build:
       context: ./dotnet
       args:
-        http_proxy: ${http_proxy:-}
-        https_proxy: ${http_proxy:-}
-        no_proxy: ${no_proxy:-}
+        <<: *proxy
     environment:
       REDIS_URL: redis:6379
+    depends_on:
+      - redis
+
+  ruby:
+    build:
+      context: ./ruby
+      args:
+        <<: *proxy
+    environment:
+      REDIS_URL: redis://redis:6379/0
     depends_on:
       - redis
 
@@ -16,3 +31,10 @@ services:
     image: redis:4.0.7-alpine
     ports:
       - "6379:6379"
+
+  redis_commander:
+    image: rediscommander/redis-commander # NOTE: only 'latest' tag available
+    ports: ["8081:8081"]
+    environment:
+      REDIS_HOSTS: redis
+    depends_on: [redis]

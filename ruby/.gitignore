@@ -1,0 +1,5 @@
+# Ignore idea config
+/.idea
+
+# Ignore coverage
+/coverage

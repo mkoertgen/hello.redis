@@ -1,0 +1,9 @@
+# Default rubocop yml, cf.:
+# - https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+EndOfLine:
+  Enabled: false
+
+AllCops:
+  Exclude: []
+  TargetRubyVersion: 2.3
