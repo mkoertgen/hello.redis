@@ -41,6 +41,16 @@ services:
     build:
       context: ./go
 
+  python:
+    build:
+      context: ./python
+      args:
+        <<: *proxy
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+
   redis:
     image: redis:4.0.7-alpine
     ports:
