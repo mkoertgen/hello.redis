@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0.5-sdk-2.1.4 AS build-env
+FROM microsoft/dotnet:2.2-sdk-alpine AS build
 
 ARG http_proxy=
 ARG https_proxy=
@@ -15,8 +15,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # build runtime image
-FROM microsoft/dotnet:2.0.5-runtime
-
+FROM microsoft/dotnet:2.2-runtime-alpine AS runtime
 ARG GIT_COMMIT=unknown
 ARG BUILD_DATE=unknown
 ARG BUILD_VERSION=unknown
@@ -39,5 +38,5 @@ LABEL org.label-schema.build-date="${BUILD_DATE}" \
 # TODO: even more labels...
 
 WORKDIR /app
-COPY --from=build-env /app/out .
+COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "hello.redis.dotnet.dll"]
