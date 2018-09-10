@@ -2,7 +2,7 @@
 
 # hello.redis
 
-Using redis for fast GeoIp lookup with implementations in multiple languages.
+Using [Redis](https://redis.io/) for fast [GeoIp lookup](https://en.wikipedia.org/wiki/Geolocation_software) with example implementations in multiple languages.
 
 ## Usage
 
