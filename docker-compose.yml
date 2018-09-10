@@ -27,6 +27,16 @@ services:
     depends_on:
       - redis
 
+  dart:
+    build:
+      context: ./dart
+      args:
+        <<: *proxy
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+
   redis:
     image: redis:4.0.7-alpine
     ports:
