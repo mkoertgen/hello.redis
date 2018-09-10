@@ -1,3 +1,5 @@
+[![GitPitch](https://gitpitch.com/assets/badge.svg)](https://gitpitch.com/mkoertgen/hello.redis/master)
+
 # hello.redis
 
 Using redis for fast GeoIp lookup with implementations in multiple languages.
