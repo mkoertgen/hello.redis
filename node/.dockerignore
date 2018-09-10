@@ -1,0 +1,12 @@
+/lib
+/lib-legacy
+/node_modules
+*.log
+/coverage
+.vs
+.idea
+.yarn-meta
+/packages/lockfile/index.js
+.vscode/
+
+Dockerfile*
