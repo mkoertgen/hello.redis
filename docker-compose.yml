@@ -37,6 +37,10 @@ services:
     depends_on:
       - redis
 
+  go:
+    build:
+      context: ./go
+
   redis:
     image: redis:4.0.7-alpine
     ports:
