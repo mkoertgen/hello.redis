@@ -7,9 +7,12 @@ x-base: &base
       http_proxy: ${http_proxy:-}
       https_proxy: ${https_proxy:-}
       no_proxy: ${no_proxy:-}
-    environment:
-      REDIS_URL: redis://redis:6379/0
-    depends_on: [redis]
+  environment:
+    REDIS_URL: redis://redis:6379/0
+  depends_on: [redis]
+
+volumes:
+  redis_volume: {}
 
 services:
   dotnet:
@@ -43,6 +46,7 @@ services:
   redis:
     image: redis:4.0.7-alpine
     ports: ["6379:6379"]
+    volumes: ["redis_volume:/data"]
 
   redis_commander:
     image: rediscommander/redis-commander # NOTE: only 'latest' tag available

@@ -7,7 +7,7 @@ app.get('/lookup/:ip', async (req, res) => {
     res.send(value);
 });
 
-app.listen(3000, () => console.log('Listening on port 3000!'));
+app.listen(3000, () => console.log('Checkout http://localhost:3000/lookup/1.2.3.4'));
 
 const asyncRedis = require("async-redis");
 const client = asyncRedis.createClient(process.env.REDIS_URL || 'redis://localhost:6379/0');
