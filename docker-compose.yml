@@ -43,10 +43,21 @@ services:
       context: ./node
     ports: ["3000:3000"]
 
+  go:
+    <<: *base
+    build:
+      context: ./go
+
+  go-dev:
+    image: golang:1.11.0-stretch
+    volumes: ["./go:/src"]
+    working_dir: /src
+
   redis:
     image: redis:4.0.7-alpine
     ports: ["6379:6379"]
     volumes: ["redis_volume:/data"]
+    command: redis-server --appendonly yes
 
   redis_commander:
     image: rediscommander/redis-commander # NOTE: only 'latest' tag available
