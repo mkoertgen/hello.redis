@@ -31,6 +31,7 @@ services:
     <<: *base
     build:
       context: ./dart
+    ports: ["8080:8080"]
 
   python:
     <<: *base
@@ -47,11 +48,6 @@ services:
     <<: *base
     build:
       context: ./go
-
-  go-dev:
-    image: golang:1.11.0-stretch
-    volumes: ["./go:/src"]
-    working_dir: /src
 
   redis:
     image: redis:4.0.7-alpine

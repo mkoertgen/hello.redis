@@ -7,5 +7,10 @@ description: A web server built using the shelf package.
 environment:
   sdk: '>=2.0.0 <3.0.0'
 
+dependencies:
+  dartis: ^0.2.0
+  #redis_client: ^0.1.16
+  #redis: ^0.4.5
+
 #dev_dependencies:
 #  test: ^1.0.0
