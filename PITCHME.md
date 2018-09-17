@@ -46,12 +46,12 @@ Question: What about overlapping ip ranges?
 Examples given in
 
 - .NET
-- Node.js
+- Node
 - Ruby
 - Python
 - Go
-- Dart (todo)
-- Java (todo)
+- Dart
+- Java
 
 ---
 
@@ -67,6 +67,17 @@ Some modules we find interesting
 - [RedisLabsModules/redis-graph](https://github.com/RedisLabsModules/redis-graph) [openCypher](http://www.opencypher.org/) compatible graph database in Redis
 - [RedisLabsModules/RediSearch](https://github.com/RedisLabsModules/RediSearch) Fulltext search for Redis
 - [earns/redissnowflake](https://github.com/erans/redissnowflake) [Twitter's Snowflake](https://github.com/twitter/snowflake/tree/snowflake-2010) scalable unique ID generation
+
+@ulend
+
+---
+
+### Some References
+
+@ul
+
+- [Redis Pub/Sub: Howto Guide](https://redisgreen.net/blog/pubsub-howto/) (RedisGreen)
+- [socketio/socket.io-redis](https://github.com/socketio/socket.io-redis)
 
 @ulend
 

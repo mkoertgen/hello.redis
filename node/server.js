@@ -6,10 +6,8 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 const redisAdapter = require('socket.io-redis');
-io.adapter(redisAdapter({
-    host: (process.env.REDIS_URL || 'localhost'),
-    port: 6379
-}));
+io.adapter(redisAdapter(process.env.REDIS_URL || 'redis://localhost:6379'));
+io.of('/').adapter.on('error', err => console.log("Socket.Io Error: " + err));
 
 io.on('connection', socket => {
     console.log('a user connected');
