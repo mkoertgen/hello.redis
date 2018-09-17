@@ -12,6 +12,18 @@ TODO
 
 ### Features
 
+---?image=https://cdn.pixabay.com/photo/2015/05/15/18/22/house-of-cards-769044_1280.jpg=20
+
+### FTSE (Fundamental Theorem of Software Engineering)
+
+@snap[north-west]
+@size[2.5em](We can solve any problem by adding another level of indirection (David Wheeler))
+@snapend
+
+@snap[south]
+@css[tagline](...except for the problem of too many layers (Kevlin Henney))
+@snapend
+
 ---
 
 ### GeoIp Lookup
