@@ -49,13 +49,21 @@ services:
     build:
       context: ./go
 
+  socket-redis:
+    image: cargomedia/socket-redis:3.3.0
+    command: "./bin/socket-redis.js --redis-host=redis --redis-port=63799 --redis-pass=foopass --status-port=8085 --socket-ports=8090,8091"
+    #restart: on-failure
+    ports: ["8085:8085", "8090:8090", "8091:8091"]
+    depends_on:
+      - redis
+
   redis:
     image: redis:4.0.7-alpine
     ports: ["6379:6379"]
     volumes: ["redis_volume:/data"]
     command: redis-server --appendonly yes
 
-  redis_commander:
+  redis-commander:
     image: rediscommander/redis-commander # NOTE: only 'latest' tag available
     ports: ["8081:8081"]
     environment:

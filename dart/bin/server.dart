@@ -6,12 +6,18 @@ import 'dart:math';
 
 import 'package:dartis/dartis.dart' show Client;
 
+Client redisClient;
+
 Future main() async {
-  // TODO: expose on 0.0.0.0 via Docker
-  var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 8080);
+  final String url = Platform.environment.containsKey('REDIS_URL')
+      ? Platform.environment['REDIS_URL']
+      : 'redis://localhost:6379';
+  redisClient = await Client.connect(url);
+
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, 8080);
   server.forEach((HttpRequest request) async {
     try {
-      var paths = request.uri.pathSegments;
+      final paths = request.uri.pathSegments;
       if (paths.isEmpty || paths.first != 'lookup')
         return _handleNotFound(request);
       return _handleLookup(request);
@@ -38,17 +44,15 @@ Future _handleLookup(HttpRequest request) async {
     ..close();
 }
 
-Future lookup(ip) async {
+Future lookup(String ip) async {
   final parsedIP = Uri.parseIPv4Address(ip).reversed.toList();
   final score = [0, 1, 2, 3]
       .fold(0, (acc, elem) => acc + pow(256, elem) * parsedIP[elem]);
-  // TODO: make redis configurable (env:REDIS_URL || default)
-  final client = await Client.connect('redis://localhost:6379');
-  final commands = client.asCommands<String, String>();
-  final Map<String, double> ids = await commands.zrangebyscore(
+  final redis = redisClient.asCommands<String, String>();
+  final Map<String, double> ids = await redis.zrangebyscore(
       'geoip:index', score.toString(), '+inf',
       offset: 0, count: 1);
   String key = "geoip:${ids.keys.first.substring(0, 2)}";
-  final value = await commands.hgetall(key);
+  final value = await redis.hgetall(key);
   return value;
 }
