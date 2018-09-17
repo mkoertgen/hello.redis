@@ -6,15 +6,19 @@
 
 ### @fa[lightbulb] Why Redis?
 
-TODO
+Some references:
+
+@ul
+
+- [Why Redis](https://redislabs.com/why-redis/) (redislabs.com)
+- [Introduction to Redis](https://redis.io/topics/introduction) (redis.io)
+- [Redis: What and Why?](https://codeburst.io/redis-what-and-why-d52b6829813) (codeburst.io)
+
+@ulend
 
 ---
 
-### Features
-
----
-
-### FTSE (Fundamental Theorem of Software Engineering)
+### Fundamental Theorem of Software Engineering (FTSE)
 
 We can solve any problem by adding another level of indirection (David Wheeler)
 
@@ -24,10 +28,16 @@ We can solve any problem by adding another level of indirection (David Wheeler)
 
 ### GeoIp Lookup
 
-TODO:
+Indirect lookup using a sorted zet of ip ranges
 
-- zrange by score
-- hgetall
+@ul
+
+- Find closest ip range: [zrange by score](https://redis.io/commands/zrangebyscore)
+- Retreive bucket: [hgetall](https://redis.io/commands/hgetall)
+
+@ulend
+
+Question: What about overlapping ip ranges?
 
 ---
 
@@ -42,20 +52,6 @@ Examples given in
 - Go
 - Dart (todo)
 - Java (todo)
-
----
-
-### Further Reading
-
-Some references:
-
-@ul
-
-- [Why Redis](https://redislabs.com/why-redis/) (redislabs.com)
-- [Introduction to Redis](https://redis.io/topics/introduction) (redis.io)
-- [Redis: What and Why?](https://codeburst.io/redis-what-and-why-d52b6829813) (codeburst.io)
-
-@ulend
 
 ---
 
