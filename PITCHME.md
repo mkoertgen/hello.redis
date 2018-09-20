@@ -29,9 +29,9 @@ More recently,
 
 [Java Says, Your Data's Not That Big](https://dzone.com/articles/how-big-is-your-data-really)
 
-|                        A majority of data scientists (56%) work in Gigabyte dataset range.                        |                                              Managing Gigabytes (1994 ;-)                                               |                      Jure Leskovic’s take on the best way to mine large datasets.                      |
-| :---------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-| ![KDnuggets 2015 Poll](https://jtablesaw.files.wordpress.com/2016/01/poll-largest-dataset-analyzed-2013-2015.jpg) | ![Managing Gigabytes (Cover)](https://images-na.ssl-images-amazon.com/images/I/414SCU9MxqL._SX371_BO1,204,203,200_.jpg) | ![Get your own 1TB Ram Server](https://i1.wp.com/fastml.com/images/distributed/bottom_line.jpg?zoom=2) |
+![KDnuggets 2015 Poll](https://jtablesaw.files.wordpress.com/2016/01/poll-largest-dataset-analyzed-2013-2015.jpg)
+
+A majority of data scientists (56%) work in Gigabyte dataset range.
 
 +++
 
@@ -53,7 +53,7 @@ Data Science is mostly about how to make sense of and interpret (filter) your da
 
 - Importing 100,000,000/day ~ 1,200/sec
 - HTTP/REST: ~50/sec => 25 container (scale out)
-- Redis: ~500,000/sec (on a laptop, pipelined)
+- Redis: ~500,000/sec (1 redis instance, on a laptop)
 
 +++
 
@@ -90,14 +90,10 @@ We can solve any problem by adding another level of indirection (David Wheeler)
 
 Indirect lookup using a sorted zet of ip ranges
 
-@ul
-
 - Find closest ip range: [zrange by score](https://redis.io/commands/zrangebyscore)
 - Retreive bucket: [hgetall](https://redis.io/commands/hgetall)
 
-@ulend
-
-Question: What about missing or overlapping ip ranges?
+**Question**: What about missing or overlapping ip ranges?
 
 ---
 
