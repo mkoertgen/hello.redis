@@ -107,7 +107,7 @@ Examples given in
 
 ### Redis Modules
 
-List of Redis modules, see [Redis Modules Hub](https://redislabs.com/community/redis-modules-hub/) (redislabs.com) [Redis Modules](https://redis.io/modules) (redis.io)
+List of [Redis Modules](https://redislabs.com/community/redis-modules-hub/) (redislabs.com), [Redis Modules](https://redis.io/modules) (redis.io)
 
 Some modules we find interesting
 
