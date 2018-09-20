@@ -101,13 +101,7 @@ Indirect lookup using a sorted zet of ip ranges
 
 Examples given in
 
-- .NET
-- Node
-- Ruby
-- Python
-- Go
-- Dart
-- Java
+- .NET, Node, Ruby, Python, Go, Dart, Java
 
 ---
 
