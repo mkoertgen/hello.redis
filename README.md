@@ -35,7 +35,7 @@ Imported 170433 GeoIP Records.
 
 View the imported keys with Redis Commander, i.e
 
-- `docker-compose up -d redis_commander`
+- `docker-compose up -d redis-commander`
 - and hit [http://localhost:8081](http://localhost:8081)
 
 ```console
